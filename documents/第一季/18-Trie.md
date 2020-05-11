@@ -4,7 +4,7 @@
 
 + 如何判断一堆不重复的字符串是否以某个前缀开头?
   - 用Set\Map存储字符串
-  - 遍历所以字符串进行判断
+  - 遍历所有字符串进行判断
   - 时间复杂度为O(n)
 + 有没有更优的数据结构实现前缀搜索?
   - Trie
@@ -89,8 +89,6 @@ public class Trie<V> {
 }
 
 ```
-
-
 
 ### Node的设计
 
@@ -246,7 +244,7 @@ public V remove(String key) {
 		Node<V> parent = null;
 		while ((parent = node.parent) != null) {
 			parent.children.remove(node.character);
-      // 父节点是单词结尾 或 已经没有子节点时
+      // 父节点是单词结尾 或 已经有其他子节点时
 			if (parent.word || parent.children.size() > 0) break;
 			node = parent;
 		}
